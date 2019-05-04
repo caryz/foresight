@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class Constants {
     enum Storyboards {
@@ -25,3 +26,23 @@ class Constants {
 
     }
 }
+
+class Fonts {
+    static func ultraLight(size: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue-UltraLight", size: size)!
+    }
+    static func light(size: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue-Light", size: size)!
+    }
+    static func regular(size: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue", size: size)!
+    }
+    static func bold(size: CGFloat) -> UIFont {
+        return UIFont(name: "HelveticaNeue-Bold", size: size)!
+    }
+}
+
+extension Notification.Name {
+    static let pieChartSelected = Notification.Name("PieChartSelectedEvent")
+}
+

@@ -10,21 +10,26 @@ import UIKit
 
 class BreakdownViewController: UIViewController {
 
+    class func create() -> BreakdownViewController {
+        let storyboard = UIStoryboard(name: "DashboardFlow", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: Constants.Controllers.breakdown.rawValue) as! BreakdownViewController
+        return vc
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(didSelectItem(_:)),
+                                               name: .pieChartSelected,
+                                               object: nil)
     }
 
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+extension BreakdownViewController {
+    @objc func didSelectItem(_ notification: NSNotification) {
+        guard let item = notification.userInfo?["Object"] as? String else { return }
+        print("Breakdown selected \(item)")
     }
-    */
-
 }

@@ -21,12 +21,14 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         pieChart.delegate = self
         viewModel = DashboardViewModel(delegate: self)
-
         PieChartBuilder.build(using: pieChart)
+
     }
+
 
 }
 
+// MARK: - DashboardDelegate
 extension DashboardViewController: DashboardDelegate {
     func didFinishFetch(response: String) {
         print(response)
@@ -39,5 +41,12 @@ extension DashboardViewController: ChartViewDelegate {
         guard let pieEntry = entry as? PieChartDataEntry,
             let label = pieEntry.label else { return }
         print("Selected: \(label)")
+
+        NotificationCenter.default.post(name: .pieChartSelected,
+                                        object: nil,
+                                        userInfo: ["Object": label])
+
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
+
     }
 }

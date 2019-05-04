@@ -13,4 +13,10 @@ extension UIViewController {
     func loadFromNib(_ name: String) -> UIViewController {
         return UIViewController(nibName: name, bundle: nil)
     }
+
+    func loadFromStoryboard(storyboard: String, name: String) -> UIViewController {
+        let storyboard = UIStoryboard(name: storyboard, bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: name)
+        return vc
+    }
 }

@@ -19,8 +19,10 @@ class PieChartBuilder {
 //        pieChart.chartDescription?.text = "Share of Disasters by Type"
 
         //All other additions to this function will go here
-        pieChart.animate(xAxisDuration: 2, easingOption: .easeOutBounce)
         dataSet.colors = ChartColorTemplates.material()
+        pieChart.centerAttributedText = getAttributedCenterText(state: "Alabama", level: "High")
+
+        pieChart.animate(xAxisDuration: 2, easingOption: .easeOutBounce)
         pieChart.spin(duration: 2, fromAngle: 0, toAngle: 120)
 
         //        dataSet.valueColors = [UIColor.black]
@@ -38,5 +40,35 @@ class PieChartBuilder {
 
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
+    }
+
+    /// State, Disaster Risk Levle, Level (Changes depending on color)
+    static func getAttributedCenterText(state: String, level: String) -> NSAttributedString {
+        let disasterText = "Disaster Risk Level"
+        let mainString = "\(state)\n\(disasterText)\n\(level)"
+        let stateRange = (mainString as NSString).range(of: state)
+        let disasterTextRange = (mainString as NSString).range(of: disasterText)
+        let levelRange = (mainString as NSString).range(of: level)
+
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = .center
+//        for familyName:String in UIFont.familyNames {
+//            print("Family Name: \(familyName)")
+//            for fontName:String in UIFont.fontNames(forFamilyName: familyName) {
+//                print("--Font Name: \(fontName)")
+//            }
+//        }
+        let str = NSMutableAttributedString(string: mainString, attributes: [.paragraphStyle: paragraphStyle])
+        str.addAttributes([.foregroundColor: UIColor.darkGray,
+                           .font: Fonts.regular(size: 12)],
+                          range: stateRange)
+        str.addAttributes([.foregroundColor: UIColor.darkGray,
+                           .font: Fonts.light(size: 12)],
+                          range: disasterTextRange)
+        str.addAttributes([.foregroundColor: UIColor.red,
+                           .font: Fonts.bold(size: 14)],
+                          range: levelRange)
+
+        return str
     }
 }
