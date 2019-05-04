@@ -1,0 +1,6 @@
+framework module Pods_ForesightTests {
+  umbrella header "Pods-ForesightTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
