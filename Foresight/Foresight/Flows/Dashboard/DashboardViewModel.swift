@@ -8,6 +8,18 @@
 
 import Foundation
 
+protocol DashboardDelegate: class {
+    func didFinishFetch(response: String)
+}
+
 class DashboardViewModel {
-    
+
+    weak var delegate: DashboardDelegate?
+
+    convenience init(delegate: DashboardDelegate) {
+        self.init()
+        self.delegate = delegate
+        self.delegate?.didFinishFetch(response: "fk u")
+    }
+
 }

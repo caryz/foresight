@@ -23,6 +23,15 @@
 		4A7EBC34227E08B50095709D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC33227E08B50095709D /* SettingsViewController.swift */; };
 		4A7EBC36227E08BD0095709D /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC35227E08BD0095709D /* AlertsViewController.swift */; };
 		4A7EBC38227E0A410095709D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC37227E0A410095709D /* TabBarViewController.swift */; };
+		4A7EBC3B227E25F80095709D /* PieChartBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC3A227E25F80095709D /* PieChartBuilder.swift */; };
+		4A7EBC3E227E29EB0095709D /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC3D227E29EB0095709D /* PagingViewController.swift */; };
+		4A7EBC41227E2FCD0095709D /* BreakdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC3F227E2FCD0095709D /* BreakdownViewController.swift */; };
+		4A7EBC42227E2FCD0095709D /* BreakdownViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EBC40227E2FCD0095709D /* BreakdownViewController.xib */; };
+		4A7EBC45227E2FE40095709D /* RecsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC43227E2FE40095709D /* RecsViewController.swift */; };
+		4A7EBC46227E2FE40095709D /* RecsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EBC44227E2FE40095709D /* RecsViewController.xib */; };
+		4A7EBC49227E2FF10095709D /* SavingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC47227E2FF10095709D /* SavingsViewController.swift */; };
+		4A7EBC4A227E2FF10095709D /* SavingsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EBC48227E2FF10095709D /* SavingsViewController.xib */; };
+		4A7EBC4C227E30C60095709D /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC4B227E30C60095709D /* Utilities.swift */; };
 		52F60572C4AA7808D916AB04 /* Pods_Foresight.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F294D59EB9B2AD89437B8F34 /* Pods_Foresight.framework */; };
 		7E10F488DC9EBAA1643C1602 /* Pods_ForesightTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFA79DB67B5D703DAE90B62B /* Pods_ForesightTests.framework */; };
 /* End PBXBuildFile section */
@@ -68,6 +77,15 @@
 		4A7EBC33227E08B50095709D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A7EBC35227E08BD0095709D /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		4A7EBC37227E0A410095709D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
+		4A7EBC3A227E25F80095709D /* PieChartBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartBuilder.swift; sourceTree = "<group>"; };
+		4A7EBC3D227E29EB0095709D /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
+		4A7EBC3F227E2FCD0095709D /* BreakdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakdownViewController.swift; sourceTree = "<group>"; };
+		4A7EBC40227E2FCD0095709D /* BreakdownViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BreakdownViewController.xib; sourceTree = "<group>"; };
+		4A7EBC43227E2FE40095709D /* RecsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecsViewController.swift; sourceTree = "<group>"; };
+		4A7EBC44227E2FE40095709D /* RecsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecsViewController.xib; sourceTree = "<group>"; };
+		4A7EBC47227E2FF10095709D /* SavingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavingsViewController.swift; sourceTree = "<group>"; };
+		4A7EBC48227E2FF10095709D /* SavingsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SavingsViewController.xib; sourceTree = "<group>"; };
+		4A7EBC4B227E30C60095709D /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		6D002EAF41B76677B14A9C91 /* Pods_ForesightUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ForesightUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAB1A98F18ADB77C9C1801FA /* Pods-ForesightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForesightTests.debug.xcconfig"; path = "Target Support Files/Pods-ForesightTests/Pods-ForesightTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B32BD13BC6693D25550F79AC /* Pods-Foresight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foresight.debug.xcconfig"; path = "Target Support Files/Pods-Foresight/Pods-Foresight.debug.xcconfig"; sourceTree = "<group>"; };
@@ -170,6 +188,7 @@
 		4A7EBC21227DFCF00095709D /* Flows */ = {
 			isa = PBXGroup;
 			children = (
+				4A7EBC3C227E29D20095709D /* Paging */,
 				4A7EBC24227DFD2A0095709D /* Dashboard */,
 				4A7EBC25227DFD420095709D /* Alerts */,
 				4A7EBC26227DFD450095709D /* Settings */,
@@ -181,8 +200,11 @@
 		4A7EBC22227DFCF60095709D /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				4A7EBC39227E21220095709D /* Networking */,
 				4A7EBC2D227E078F0095709D /* Constants.swift */,
 				4A7EBC37227E0A410095709D /* TabBarViewController.swift */,
+				4A7EBC3A227E25F80095709D /* PieChartBuilder.swift */,
+				4A7EBC4B227E30C60095709D /* Utilities.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -222,6 +244,51 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		4A7EBC39227E21220095709D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		4A7EBC3C227E29D20095709D /* Paging */ = {
+			isa = PBXGroup;
+			children = (
+				4A7EBC3D227E29EB0095709D /* PagingViewController.swift */,
+				4A7EBC4D227E35460095709D /* Breakdown */,
+				4A7EBC4E227E35500095709D /* Recs */,
+				4A7EBC4F227E35560095709D /* Savings */,
+			);
+			path = Paging;
+			sourceTree = "<group>";
+		};
+		4A7EBC4D227E35460095709D /* Breakdown */ = {
+			isa = PBXGroup;
+			children = (
+				4A7EBC40227E2FCD0095709D /* BreakdownViewController.xib */,
+				4A7EBC3F227E2FCD0095709D /* BreakdownViewController.swift */,
+			);
+			path = Breakdown;
+			sourceTree = "<group>";
+		};
+		4A7EBC4E227E35500095709D /* Recs */ = {
+			isa = PBXGroup;
+			children = (
+				4A7EBC44227E2FE40095709D /* RecsViewController.xib */,
+				4A7EBC43227E2FE40095709D /* RecsViewController.swift */,
+			);
+			path = Recs;
+			sourceTree = "<group>";
+		};
+		4A7EBC4F227E35560095709D /* Savings */ = {
+			isa = PBXGroup;
+			children = (
+				4A7EBC48227E2FF10095709D /* SavingsViewController.xib */,
+				4A7EBC47227E2FF10095709D /* SavingsViewController.swift */,
+			);
+			path = Savings;
+			sourceTree = "<group>";
+		};
 		AE7806B6BB9CFE390C3D610E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,7 +309,6 @@
 				0C7B6405578FC52C4E9E008B /* Pods-ForesightUITests.debug.xcconfig */,
 				C5F8331E32B67686296FA701 /* Pods-ForesightUITests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -357,9 +423,12 @@
 				4A7EBC30227E08A00095709D /* AlertsFlow.storyboard in Resources */,
 				4A7EBC32227E08AB0095709D /* SettingsFlow.storyboard in Resources */,
 				4A7EBBFD227DFC750095709D /* LaunchScreen.storyboard in Resources */,
+				4A7EBC46227E2FE40095709D /* RecsViewController.xib in Resources */,
 				4A7EBBFA227DFC750095709D /* Assets.xcassets in Resources */,
 				4A7EBBF8227DFC730095709D /* Main.storyboard in Resources */,
+				4A7EBC42227E2FCD0095709D /* BreakdownViewController.xib in Resources */,
 				4A7EBC28227E02C50095709D /* DashboardFlow.storyboard in Resources */,
+				4A7EBC4A227E2FF10095709D /* SavingsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,13 +544,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A7EBC49227E2FF10095709D /* SavingsViewController.swift in Sources */,
 				4A7EBC2C227E05440095709D /* DashboardViewModel.swift in Sources */,
 				4A7EBC34227E08B50095709D /* SettingsViewController.swift in Sources */,
+				4A7EBC45227E2FE40095709D /* RecsViewController.swift in Sources */,
+				4A7EBC4C227E30C60095709D /* Utilities.swift in Sources */,
 				4A7EBBF1227DFC730095709D /* AppDelegate.swift in Sources */,
 				4A7EBC2A227E05390095709D /* DashboardViewController.swift in Sources */,
 				4A7EBC38227E0A410095709D /* TabBarViewController.swift in Sources */,
 				4A7EBC2E227E078F0095709D /* Constants.swift in Sources */,
+				4A7EBC3E227E29EB0095709D /* PagingViewController.swift in Sources */,
 				4A7EBC36227E08BD0095709D /* AlertsViewController.swift in Sources */,
+				4A7EBC41227E2FCD0095709D /* BreakdownViewController.swift in Sources */,
+				4A7EBC3B227E25F80095709D /* PieChartBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

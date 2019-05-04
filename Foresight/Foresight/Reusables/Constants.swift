@@ -14,4 +14,14 @@ class Constants {
         static let alerts = "alertsNav"
         static let settings = "settingsNav"
     }
+
+    enum Controllers: String {
+        case breakdown = "BreakdownViewController"
+        case recs = "RecsViewController"
+        case savings = "SavingsViewController"
+    }
+
+    enum Colors {
+
+    }
 }
