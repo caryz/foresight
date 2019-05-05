@@ -27,7 +27,7 @@ class APIManager {
         return URL(string: url.string ?? "")
     }
 
-    func makeApiCall(url: URL, completion: ((Any) -> Void)) {
+    func makeApiCall(url: URL, completion: @escaping ((_ data: Data?) -> Void)) {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -35,12 +35,13 @@ class APIManager {
         let session = URLSession.shared
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
             print(response!)
-            do {
-                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
-                print(json)
-            } catch {
-                print("error")
-            }
+            completion(data)
+//            do {
+//                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
+//                print(json)
+//            } catch {
+//                print("error")
+//            }
         })
 
         task.resume()

@@ -42,11 +42,27 @@ enum IncidentType: String, Codable {
 }
 
 class IncidentAPI {
-    static func getIncidentsByState(completion: ((IncidentResponse) -> Void)?) {
+    static func getIncidentsByState(completion: ((IncidentResponse?) -> Void)?) {
+        // local testing
         let url = Bundle.main.url(forResource: "test", withExtension: "json")!
         let data = try! Data(contentsOf: url)
         let res = try! JSONDecoder().decode(IncidentResponse.self, from: data)
-//        print(ha)
-        completion?(res)
+//        print(res)
+
+        // server-side code
+        guard let request = APIManager.shared
+            .makeUrlRequest(endpoint: Endpoints.incidents,
+                            queryParams: ["state" : "FL",
+                                          "month" : "5"]) else {
+                                            completion?(nil)
+                                            return
+        }
+
+        APIManager.shared.makeApiCall(url: request) { (data) in
+            guard let data = data else { return }
+            let result = try! JSONDecoder().decode(IncidentResponse.self, from: data)
+            completion?(result)
+        }
+
     }
 }

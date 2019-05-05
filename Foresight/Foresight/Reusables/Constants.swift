@@ -28,6 +28,11 @@ class Constants {
     }
 }
 
+enum Endpoints {
+    static let incidents = ""
+    static let otherEndpoint = ""
+}
+
 class Fonts {
     static func ultraLight(size: CGFloat) -> UIFont {
         return UIFont(name: "HelveticaNeue-UltraLight", size: size)!
