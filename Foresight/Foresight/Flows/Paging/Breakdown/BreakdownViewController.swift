@@ -42,12 +42,25 @@ class BreakdownViewController: UIViewController {
 
 extension BreakdownViewController {
     @objc func didSelectItem(_ notification: NSNotification) {
-        guard let item = notification.userInfo?["item"] as? String else { return }
+        guard let item = notification.userInfo?["item"] as? IncidentType else { return }
         print("Breakdown selected \(item)")
+
+        IncidentAPI.getIncidentsByCategory(state: "FL",
+                                           category: item) { (response: IncidentResponse?) in
+                                            guard let response = response else { return }
+
+                                            ChartBuilder.buildBarChart(self.barChart, using: response)
+        }
     }
 
     @objc func didUnselectItems(_ notification: NSNotification) {
         print("Unselected")
+
+            IncidentAPI.getIncidentsByState() { (response: IncidentResponse?) in
+                guard let response = response else { return }
+
+                ChartBuilder.buildBarChart(self.barChart, using: response)
+            }
     }
 }
 

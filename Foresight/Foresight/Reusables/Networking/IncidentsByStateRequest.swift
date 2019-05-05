@@ -93,12 +93,19 @@ protocol APICallable {
 class IncidentAPI: APICallable {
     static var key = String(describing: IncidentAPI.self)
 
-    static func getIncidentsByState(completion: ((IncidentResponse?) -> Void)?) {
+    static func getIncidentsByState(state: String = "FL",
+                                    completion: ((IncidentResponse?) -> Void)?) {
         guard let request = APIManager.shared
             .makeUrlRequest(endpoint: Endpoints.incidents,
-                            queryParams: ["state_abbrev" : "FL"]) else {
+                            queryParams: ["state_abbrev" : state]) else {
                                             completion?(nil)
                                             return
+        }
+
+        if let cachedItem = APIManager.shared.cache[key],
+            let cachedResult = cachedItem as? IncidentResponse {
+            completion?(cachedResult)
+            return
         }
 
         APIManager.shared.makeApiCall(url: request) { (data) in
@@ -107,6 +114,30 @@ class IncidentAPI: APICallable {
             APIManager.shared.cache.updateValue(result, forKey: key)
             completion?(result)
         }
+    }
 
+    static func getIncidentsByCategory(state: String = "FL",
+                                       category: IncidentType,
+                                       completion: ((IncidentResponse?) -> Void)?) {
+        guard let request = APIManager.shared
+            .makeUrlRequest(endpoint: Endpoints.incidents,
+                            queryParams: ["state_abbrev" : "FL",
+                                          "category" : category.rawValue]) else {
+                                completion?(nil)
+                                return
+        }
+
+        if let cachedItem = APIManager.shared.cache[category.rawValue],
+            let cachedResult = cachedItem as? IncidentResponse {
+            completion?(cachedResult)
+            return
+        }
+
+        APIManager.shared.makeApiCall(url: request) { (data) in
+            guard let data = data else { return }
+            let result = try! JSONDecoder().decode(IncidentResponse.self, from: data)
+            APIManager.shared.cache.updateValue(result, forKey: category.rawValue)
+            completion?(result)
+        }
     }
 }

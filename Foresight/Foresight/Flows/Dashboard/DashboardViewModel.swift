@@ -30,10 +30,12 @@ class DashboardViewModel {
         }
     }
 
-    func notifyPieChartSelection(item: String) {
+    func notifyPieChartSelection(item: IncidentType) {
         NotificationCenter.default.post(name: .pieChartSelected,
                                         object: nil,
                                         userInfo: ["item": item])
+
+        print(item.description)
     }
 
     func notifyPieChartDeselection() {

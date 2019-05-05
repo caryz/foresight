@@ -60,7 +60,21 @@ extension DashboardViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         guard let pieEntry = entry as? PieChartDataEntry,
             let label = pieEntry.label else { return }
-        viewModel.notifyPieChartSelection(item: label)
+
+        var item: IncidentType = .severe_storm
+        switch label {
+        case IncidentType.severe_storm.description: item = .severe_storm
+        case IncidentType.flood.description: item = .flood
+        case IncidentType.hurricane.description: item = .hurricane
+        case IncidentType.snow.description: item = .snow
+        case IncidentType.fire.description: item = .fire
+        case IncidentType.severe_ice_storm.description: item = .severe_ice_storm
+        case IncidentType.tornado.description: item = .tornado
+        case IncidentType.drought.description: item = .drought
+        default: ()
+        }
+
+        viewModel.notifyPieChartSelection(item: item)
     }
 
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
