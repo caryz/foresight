@@ -9,7 +9,7 @@
 import Foundation
 
 protocol DashboardDelegate: class {
-    func didFinishFetch(response: String)
+    func didFinishFetchingIncidents(response: IncidentResponse)
 }
 
 class DashboardViewModel {
@@ -19,8 +19,13 @@ class DashboardViewModel {
     convenience init(delegate: DashboardDelegate) {
         self.init()
         self.delegate = delegate
-        self.delegate?.didFinishFetch(response: "api calls finished")
+        makeApiCalls()
     }
 
-
+    func makeApiCalls() {
+        IncidentAPI.getIncidentsByState() { [weak self] (response: IncidentResponse) in
+            guard let strongSelf = self else { return }
+            strongSelf.delegate?.didFinishFetchingIncidents(response: response)
+        }
+    }
 }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		134E59DE7134651C433E1286 /* Pods_ForesightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D002EAF41B76677B14A9C91 /* Pods_ForesightUITests.framework */; };
 		4A33971E227E70FF004F2AE7 /* PaperTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33971D227E70FE004F2AE7 /* PaperTileView.swift */; };
+		4A339722227E8853004F2AE7 /* IncidentsByStateRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A339721227E8853004F2AE7 /* IncidentsByStateRequest.swift */; };
+		4A339724227E8B57004F2AE7 /* test.json in Resources */ = {isa = PBXBuildFile; fileRef = 4A339723227E8B57004F2AE7 /* test.json */; };
+		4A339726227E95BE004F2AE7 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A339725227E95BE004F2AE7 /* APIManager.swift */; };
 		4A7EBBF1227DFC730095709D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBBF0227DFC730095709D /* AppDelegate.swift */; };
 		4A7EBBF8227DFC730095709D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EBBF6227DFC730095709D /* Main.storyboard */; };
 		4A7EBBFA227DFC750095709D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EBBF9227DFC750095709D /* Assets.xcassets */; };
@@ -55,6 +58,9 @@
 		0C7B6405578FC52C4E9E008B /* Pods-ForesightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForesightUITests.debug.xcconfig"; path = "Target Support Files/Pods-ForesightUITests/Pods-ForesightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D2299B1BB350A9626BC3272 /* Pods-Foresight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foresight.release.xcconfig"; path = "Target Support Files/Pods-Foresight/Pods-Foresight.release.xcconfig"; sourceTree = "<group>"; };
 		4A33971D227E70FE004F2AE7 /* PaperTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperTileView.swift; sourceTree = "<group>"; };
+		4A339721227E8853004F2AE7 /* IncidentsByStateRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncidentsByStateRequest.swift; sourceTree = "<group>"; };
+		4A339723227E8B57004F2AE7 /* test.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = test.json; sourceTree = "<group>"; };
+		4A339725227E95BE004F2AE7 /* APIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
 		4A7EBBED227DFC730095709D /* Foresight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foresight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7EBBF0227DFC730095709D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A7EBBF7227DFC730095709D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -244,6 +250,9 @@
 		4A7EBC39227E21220095709D /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				4A339725227E95BE004F2AE7 /* APIManager.swift */,
+				4A339721227E8853004F2AE7 /* IncidentsByStateRequest.swift */,
+				4A339723227E8B57004F2AE7 /* test.json */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -419,6 +428,7 @@
 				4A7EBBFD227DFC750095709D /* LaunchScreen.storyboard in Resources */,
 				4A7EBBFA227DFC750095709D /* Assets.xcassets in Resources */,
 				4A7EBBF8227DFC730095709D /* Main.storyboard in Resources */,
+				4A339724227E8B57004F2AE7 /* test.json in Resources */,
 				4A7EBC28227E02C50095709D /* DashboardFlow.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,12 +547,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A339726227E95BE004F2AE7 /* APIManager.swift in Sources */,
 				4A7EBC49227E2FF10095709D /* SavingsViewController.swift in Sources */,
 				4A7EBC2C227E05440095709D /* DashboardViewModel.swift in Sources */,
 				4A7EBC34227E08B50095709D /* SettingsViewController.swift in Sources */,
 				4A7EBC45227E2FE40095709D /* RecsViewController.swift in Sources */,
 				4A7EBC4C227E30C60095709D /* Utilities.swift in Sources */,
 				4A7EBBF1227DFC730095709D /* AppDelegate.swift in Sources */,
+				4A339722227E8853004F2AE7 /* IncidentsByStateRequest.swift in Sources */,
 				4A7EBC2A227E05390095709D /* DashboardViewController.swift in Sources */,
 				4A7EBC38227E0A410095709D /* TabBarViewController.swift in Sources */,
 				4A7EBC2E227E078F0095709D /* Constants.swift in Sources */,

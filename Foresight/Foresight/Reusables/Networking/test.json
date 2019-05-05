@@ -1,0 +1,17 @@
+{
+    "state_abbrev": "VA",
+    "state_name": "Virginia",
+    "incident_counts": [{
+        "type": "severe_storm",
+        "count": 32,
+        "percentage_of_all_incidents": 0.27
+    },
+    {
+        "type": "fire",
+        "count": 25,
+        "percentage_of_all_incidents": 0.13
+    }
+    ],
+    "incident_count_total": 130,
+    "percentage_of_national": 8
+}

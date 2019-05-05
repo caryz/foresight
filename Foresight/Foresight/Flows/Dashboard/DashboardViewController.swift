@@ -29,7 +29,7 @@ class DashboardViewController: UIViewController {
 
 // MARK: - DashboardDelegate
 extension DashboardViewController: DashboardDelegate {
-    func didFinishFetch(response: String) {
+    func didFinishFetchingIncidents(response: IncidentResponse) {
         print(response)
     }
 }
