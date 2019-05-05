@@ -3,20 +3,33 @@ PODS:
   - Charts (3.2.2):
     - Charts/Core (= 3.2.2)
   - Charts/Core (3.2.2)
+  - GoogleMaps (3.0.3):
+    - GoogleMaps/Maps (= 3.0.3)
+  - GoogleMaps/Base (3.0.3)
+  - GoogleMaps/Maps (3.0.3):
+    - GoogleMaps/Base
+  - GooglePlaces (3.0.3):
+    - GoogleMaps/Base (= 3.0.3)
 
 DEPENDENCIES:
   - AloeStackView
   - Charts
+  - GoogleMaps
+  - GooglePlaces
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - AloeStackView
     - Charts
+    - GoogleMaps
+    - GooglePlaces
 
 SPEC CHECKSUMS:
   AloeStackView: d22c006da4510db5e220968234174654b5ed6ea5
   Charts: f69cf0518b6d1d62608ca504248f1bbe0b6ae77e
+  GoogleMaps: fd5c9fa58871781b9fb94d4936f19c69fe60ce32
+  GooglePlaces: f09e76993c9c3ee4af8f4f7f535bb94d6aa3b649
 
-PODFILE CHECKSUM: 3828944572370ca4cb1c0ae9c7a790f17bc66ed0
+PODFILE CHECKSUM: 8a55b48ad6cc37ae5f4ad5cdd359a2f00d301504
 
 COCOAPODS: 1.6.1

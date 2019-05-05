@@ -23,7 +23,7 @@ class DashboardViewModel {
     }
 
     func makeApiCalls() {
-        IncidentAPI.getIncidentsByState() { [weak self] (response: IncidentResponse?) in
+        IncidentAPI.getIncidentsByState(state: APIManager.shared.stateAbbrev) { [weak self] (response: IncidentResponse?) in
             guard let strongSelf = self,
                 let response = response else { return }
             strongSelf.delegate?.didFinishFetchingIncidents(response: response)
@@ -31,11 +31,13 @@ class DashboardViewModel {
     }
 
     func notifyPieChartSelection(item: IncidentType) {
+        DispatchQueue.main.async {
         NotificationCenter.default.post(name: .pieChartSelected,
                                         object: nil,
                                         userInfo: ["item": item])
 
         print(item.description)
+        }
     }
 
     func notifyPieChartDeselection() {

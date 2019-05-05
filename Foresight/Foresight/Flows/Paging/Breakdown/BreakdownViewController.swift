@@ -45,7 +45,7 @@ extension BreakdownViewController {
         guard let item = notification.userInfo?["item"] as? IncidentType else { return }
         print("Breakdown selected \(item)")
 
-        IncidentAPI.getIncidentsByCategory(state: "FL",
+        IncidentAPI.getIncidentsByCategory(state: APIManager.shared.stateAbbrev,
                                            category: item) { (response: IncidentResponse?) in
                                             guard let response = response else { return }
 
@@ -56,17 +56,16 @@ extension BreakdownViewController {
     @objc func didUnselectItems(_ notification: NSNotification) {
         print("Unselected")
 
-            IncidentAPI.getIncidentsByState() { (response: IncidentResponse?) in
-                guard let response = response else { return }
-
-                ChartBuilder.buildBarChart(self.barChart, using: response)
-            }
+        IncidentAPI.getIncidentsByState(state: APIManager.shared.stateAbbrev) { (response: IncidentResponse?) in
+            guard let response = response else { return }
+            ChartBuilder.buildBarChart(self.barChart, using: response)
+        }
     }
 }
 
 extension BreakdownViewController: APIManagerDelegate {
     func didFinishCall() {
-        guard let res = APIManager.shared.cache[IncidentAPI.key] as? IncidentResponse else {
+        guard let res = APIManager.shared.cache[APIManager.shared.stateAbbrev] as? IncidentResponse else {
             return
         }
         DispatchQueue.main.sync {

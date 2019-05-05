@@ -32,6 +32,10 @@ class DashboardViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        IncidentAPI.getIncidentsByState(state: APIManager.shared.stateAbbrev) { (response: IncidentResponse?) in
+            guard let response = response else { return }
+            ChartBuilder.buildPieChart(self.pieChart, using: response)
+        }
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 

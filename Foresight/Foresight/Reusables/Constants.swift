@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class Constants {
+    static let googleApiKey = "AIzaSyCHiWYP12kLr8A2wHYX401xASGQuL6aUJ8"
     enum Storyboards {
         static let dashboard = "dashboardNav"
         static let alerts = "alertsNav"

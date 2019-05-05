@@ -20,6 +20,8 @@ class APIManager {
     var cache: [String : Codable] = [:]
     weak var delegate: APIManagerDelegate?
 
+    var stateAbbrev: String = "FL"
+
     func makeUrlRequest(endpoint: String, queryParams: [String : String]? = nil) -> URL? {
         guard var url = URLComponents(string: endpoint),
             let urlString = url.string else { return nil }

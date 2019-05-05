@@ -12,7 +12,7 @@ struct IncidentResponse: Codable {
     var stateAbbrev: String
     var stateName: String
     var incidents: [Incident]
-    var incidentsTotal: Int
+    var incidentsTotal: String
     var percentNational: Double
     var monthData: [Month]
 
@@ -102,8 +102,9 @@ class IncidentAPI: APICallable {
                                             return
         }
 
-        if let cachedItem = APIManager.shared.cache[key],
+        if let cachedItem = APIManager.shared.cache[state],
             let cachedResult = cachedItem as? IncidentResponse {
+            print("Cached: \(state)")
             completion?(cachedResult)
             return
         }
@@ -111,7 +112,8 @@ class IncidentAPI: APICallable {
         APIManager.shared.makeApiCall(url: request) { (data) in
             guard let data = data else { return }
             let result = try! JSONDecoder().decode(IncidentResponse.self, from: data)
-            APIManager.shared.cache.updateValue(result, forKey: key)
+            APIManager.shared.cache.updateValue(result, forKey: state)
+            print("Calling: \(state)")
             completion?(result)
         }
     }
@@ -121,14 +123,15 @@ class IncidentAPI: APICallable {
                                        completion: ((IncidentResponse?) -> Void)?) {
         guard let request = APIManager.shared
             .makeUrlRequest(endpoint: Endpoints.incidents,
-                            queryParams: ["state_abbrev" : "FL",
+                            queryParams: ["state_abbrev" : state,
                                           "category" : category.rawValue]) else {
                                 completion?(nil)
                                 return
         }
 
-        if let cachedItem = APIManager.shared.cache[category.rawValue],
+        if let cachedItem = APIManager.shared.cache["\(state)-\(category.rawValue)"],
             let cachedResult = cachedItem as? IncidentResponse {
+            print("Cached: \(state)-\(category.rawValue)")
             completion?(cachedResult)
             return
         }
@@ -136,7 +139,8 @@ class IncidentAPI: APICallable {
         APIManager.shared.makeApiCall(url: request) { (data) in
             guard let data = data else { return }
             let result = try! JSONDecoder().decode(IncidentResponse.self, from: data)
-            APIManager.shared.cache.updateValue(result, forKey: category.rawValue)
+            APIManager.shared.cache.updateValue(result, forKey: "\(state)-\(category.rawValue)")
+            print("Calling: \(state)-\(category.rawValue)")
             completion?(result)
         }
     }

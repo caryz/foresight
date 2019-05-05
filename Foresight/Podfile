@@ -8,7 +8,9 @@ target 'Foresight' do
   # Pods for Foresight
   pod 'Charts'
   pod 'AloeStackView'
-
+  pod 'GooglePlaces'
+  pod 'GoogleMaps'
+  
   target 'ForesightTests' do
     inherit! :search_paths
     # Pods for testing
