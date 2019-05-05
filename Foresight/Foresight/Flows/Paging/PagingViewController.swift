@@ -11,8 +11,7 @@ import UIKit
 class PagingViewController: UIPageViewController {
     fileprivate lazy var pages: [UIViewController] = {
         return [BreakdownViewController.create(),
-                RecsViewController.create(),
-                SavingsViewController.create()]
+                RecsViewController.create()]
     }()
 
     var pageControl: UIPageControl!

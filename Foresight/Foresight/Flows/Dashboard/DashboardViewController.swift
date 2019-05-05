@@ -16,21 +16,42 @@ class DashboardViewController: UIViewController {
 
     // ivars
     var viewModel: DashboardViewModel!
+    var spinnerVC: SpinnerViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        spinnerVC = SpinnerViewController.createSpinnerView(on: self)
         pieChart.delegate = self
+        pieChart.noDataText = "Hold your horses 🐎!\nI'm loading..."
+        pieChart.noDataFont = Fonts.regular(size: 18)
+        pieChart.backgroundColor = Constants.Colors.lightGray
+        view.backgroundColor = Constants.Colors.lightGray
+        pieChart.noDataTextAlignment = .center
         viewModel = DashboardViewModel(delegate: self)
-        ChartBuilder.buildPieChart(pieChart)
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
 }
 
 // MARK: - DashboardDelegate
 extension DashboardViewController: DashboardDelegate {
     func didFinishFetchingIncidents(response: IncidentResponse) {
         print(response)
+        DispatchQueue.main.sync {
+//            sleep(1)
+            spinnerVC.willMove(toParent: nil)
+            spinnerVC.view.removeFromSuperview()
+            spinnerVC.removeFromParent()
+            ChartBuilder.buildPieChart(pieChart, using: response)
+        }
     }
 }
 
@@ -39,16 +60,11 @@ extension DashboardViewController: ChartViewDelegate {
     func chartValueSelected(_ chartView: ChartViewBase, entry: ChartDataEntry, highlight: Highlight) {
         guard let pieEntry = entry as? PieChartDataEntry,
             let label = pieEntry.label else { return }
-        print("Selected: \(label)")
-
-        NotificationCenter.default.post(name: .pieChartSelected,
-                                        object: nil,
-                                        userInfo: ["item": label])
+        viewModel.notifyPieChartSelection(item: label)
     }
 
     func chartValueNothingSelected(_ chartView: ChartViewBase) {
-        NotificationCenter.default.post(name: .pieChartDeselected,
-                                        object: nil,
-                                        userInfo: nil)
+        viewModel.notifyPieChartDeselection()
     }
 }
+

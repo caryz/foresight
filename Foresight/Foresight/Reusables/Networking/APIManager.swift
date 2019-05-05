@@ -8,9 +8,17 @@
 
 import Foundation
 
+protocol APIManagerDelegate: class {
+    func didFinishCall()
+}
+
 class APIManager {
     static let shared = APIManager()
     init() { }
+
+    // Key : API Response dictionary
+    var cache: [String : Codable] = [:]
+    weak var delegate: APIManagerDelegate?
 
     func makeUrlRequest(endpoint: String, queryParams: [String : String]? = nil) -> URL? {
         guard var url = URLComponents(string: endpoint),
@@ -34,18 +42,10 @@ class APIManager {
 
         let session = URLSession.shared
         let task = session.dataTask(with: request, completionHandler: { data, response, error -> Void in
-            print(response!)
             completion(data)
-//            do {
-//                let json = try JSONSerialization.jsonObject(with: data!) as! Dictionary<String, AnyObject>
-//                print(json)
-//            } catch {
-//                print("error")
-//            }
+            self.delegate?.didFinishCall()
         })
 
         task.resume()
     }
 }
-
-

@@ -1,17 +1,27 @@
 {
-    "state_abbrev": "VA",
-    "state_name": "Virginia",
+    "state_abbrev": "FL",
+    "state_name": "florida",
     "incident_counts": [{
+        "type": "hurricane",
+        "count": 648,
+        "percentage_of_all_incidents": 48.50299401197605
+    }, {
         "type": "severe_storm",
-        "count": 32,
-        "percentage_of_all_incidents": 0.27
-    },
-    {
+        "count": 326,
+        "percentage_of_all_incidents": 24.40119760479042
+    }, {
         "type": "fire",
-        "count": 25,
-        "percentage_of_all_incidents": 0.13
-    }
-    ],
-    "incident_count_total": 130,
-    "percentage_of_national": 8
+        "count": 251,
+        "percentage_of_all_incidents": 18.7874251497006
+    }, {
+        "type": "flood",
+        "count": 73,
+        "percentage_of_all_incidents": 5.4640718562874255
+    }, {
+        "type": "tornado",
+        "count": 38,
+        "percentage_of_all_incidents": 2.844311377245509
+    }],
+    "incident_count_total": 1336,
+    "percentage_of_national": 3.0811
 }

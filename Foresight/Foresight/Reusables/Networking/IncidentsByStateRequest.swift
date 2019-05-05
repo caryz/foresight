@@ -14,6 +14,16 @@ struct IncidentResponse: Codable {
     var incidents: [Incident]
     var incidentsTotal: Int
     var percentNational: Double
+    var monthData: [Month]
+
+    var totalClaimCount: Double
+    var totalClaimPayout: Double
+    var totalPayoutLabel: String
+    var avgClaimPayout: String
+    var avgClaimsPerYear: String
+    var avgPayoutPerYear: String
+
+    var incidentRiskLevel: String
 
     enum CodingKeys: String, CodingKey {
         case stateAbbrev = "state_abbrev"
@@ -21,16 +31,37 @@ struct IncidentResponse: Codable {
         case incidents = "incident_counts"
         case incidentsTotal = "incident_count_total"
         case percentNational = "percentage_of_national"
+        case monthData = "month_aggs"
+
+        case totalClaimCount = "total_claim_count"
+        case totalClaimPayout = "total_claim_payout"
+        case totalPayoutLabel = "total_payout_label"
+        case avgClaimPayout = "avgClaimPayout"
+        case avgClaimsPerYear = "avgClaimsPerYear"
+        case avgPayoutPerYear = "avgPayoutPerYear"
+        case incidentRiskLevel
     }
 }
 
 struct Incident: Codable {
     var type: IncidentType
     var count: Int
-    var percentage_of_all_incidents: Double
+    var percent: Double
+
+    enum CodingKeys: String, CodingKey {
+        case type
+        case count
+        case percent = "percentage_of_all_incidents"
+    }
 }
 
-enum IncidentType: String, Codable {
+struct Month: Codable {
+    var month: Double
+    var count: Double
+    var percentage: Double
+}
+
+enum IncidentType: String, Codable, CustomStringConvertible {
     case severe_storm
     case flood
     case hurricane
@@ -39,21 +70,33 @@ enum IncidentType: String, Codable {
     case severe_ice_storm
     case tornado
     case drought
+
+    var description: String {
+        switch self {
+        case .severe_storm: return "Severe Storm ⛈"
+        case .flood: return "Flood 🌊"
+        case .hurricane: return "Hurricane 🌧"
+        case .snow: return "Snow ❄️"
+        case .fire: return "Fire 🔥"
+        case .severe_ice_storm: return "Severe Ice Storm 🥶"
+        case .tornado: return "Tornado 🌪"
+        case .drought: return "Drought 🌵"
+        }
+    }
 }
 
-class IncidentAPI {
-    static func getIncidentsByState(completion: ((IncidentResponse?) -> Void)?) {
-        // local testing
-        let url = Bundle.main.url(forResource: "test", withExtension: "json")!
-        let data = try! Data(contentsOf: url)
-        let res = try! JSONDecoder().decode(IncidentResponse.self, from: data)
-//        print(res)
+protocol APICallable {
+    static var key: String { get set }
+}
 
-        // server-side code
+
+class IncidentAPI: APICallable {
+    static var key = String(describing: IncidentAPI.self)
+
+    static func getIncidentsByState(completion: ((IncidentResponse?) -> Void)?) {
         guard let request = APIManager.shared
             .makeUrlRequest(endpoint: Endpoints.incidents,
-                            queryParams: ["state" : "FL",
-                                          "month" : "5"]) else {
+                            queryParams: ["state_abbrev" : "FL"]) else {
                                             completion?(nil)
                                             return
         }
@@ -61,6 +104,7 @@ class IncidentAPI {
         APIManager.shared.makeApiCall(url: request) { (data) in
             guard let data = data else { return }
             let result = try! JSONDecoder().decode(IncidentResponse.self, from: data)
+            APIManager.shared.cache.updateValue(result, forKey: key)
             completion?(result)
         }
 

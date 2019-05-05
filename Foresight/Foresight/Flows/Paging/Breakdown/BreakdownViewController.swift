@@ -33,9 +33,10 @@ class BreakdownViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        APIManager.shared.delegate = self
         NotificationCenter.default.addObserver(self, selector: #selector(didSelectItem(_:)), name: .pieChartSelected, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(didUnselectItems(_:)), name: .pieChartDeselected, object: nil)
-        ChartBuilder.buildBarChart(barChart)
+        infoView.isHidden = true
     }
 }
 
@@ -47,5 +48,20 @@ extension BreakdownViewController {
 
     @objc func didUnselectItems(_ notification: NSNotification) {
         print("Unselected")
+    }
+}
+
+extension BreakdownViewController: APIManagerDelegate {
+    func didFinishCall() {
+        guard let res = APIManager.shared.cache[IncidentAPI.key] as? IncidentResponse else {
+            return
+        }
+        DispatchQueue.main.sync {
+            annualDamageValue.text = res.avgPayoutPerYear
+            avgClaimValue.text = res.avgClaimsPerYear
+            avgDisasterCountValue.text = String(res.incidentsTotal)
+            infoView.isHidden = false
+            ChartBuilder.buildBarChart(barChart, using: res)
+        }
     }
 }

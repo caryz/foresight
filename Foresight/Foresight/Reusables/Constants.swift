@@ -29,7 +29,7 @@ class Constants {
 }
 
 enum Endpoints {
-    static let incidents = ""
+    static let incidents = "http://jayada.ms/foresight/?incidentsByState"
     static let otherEndpoint = ""
 }
 
@@ -53,3 +53,28 @@ extension Notification.Name {
     static let pieChartDeselected = Notification.Name("PieChartNothingSelected")
 }
 
+struct RecommendationInfo {
+    static let details: [String : String] = [
+        "Policy Effectivity" : "30 days",
+        "Annual Plan" : "Yes",
+        "Minimum Coverage" : "Not Started",
+        "Maximum Coverage" : "Not Started",
+        "Sample Policy" : "None",
+        "Privacy  Policy" : "Yes",
+    ]
+
+    static let coverage: [String : String] = [
+        "Personal Injury" : "Yes",
+        "Cars" : "Yes",
+        "Appliance" : "Yes",
+        "Furniture" : "Not Started",
+        "Electrical and Plumbing System" : "None",
+        "Personal Belongings" : "Yes",
+        "Floor Coverage" : "Yes",
+        "Debris Removed" : "Yes",
+        "Currency and Valuable Papers" : "No",
+        "Non-flammable insulation" : "Yes",
+        "Commercial" : "Yes",
+        "Residential" : "Yes",
+    ]
+}

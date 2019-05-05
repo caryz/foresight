@@ -9,69 +9,57 @@
 import Charts
 
 class ChartBuilder {
-    static func buildPieChart(_ pieChart: PieChartView) {
-        let dataSet = PieChartDataSet(values: [
-            PieChartDataEntry(value: 25, label: "Flood"),
-            PieChartDataEntry(value: 10, label: "Fire"),
-            PieChartDataEntry(value: 5, label: "Drought"),
-            PieChartDataEntry(value: 20, label: "Hurricane"),
-            PieChartDataEntry(value: 40, label: "Tornado")
-            ], label: "")
+    static func buildPieChart(_ pieChart: PieChartView, using res: IncidentResponse) {
+
+        let entries = res.incidents.map {
+            PieChartDataEntry(value: $0.percent,
+                              label: $0.type.description)
+        }
+
+        let dataSet = PieChartDataSet(values: entries, label: "")
         let data = PieChartData(dataSet: dataSet)
         pieChart.data = data
 //        pieChart.chartDescription?.text = "Share of Disasters by Type"
 
         //All other additions to this function will go here
         dataSet.colors = ChartColorTemplates.joyful()
+        dataSet.valueFont = Fonts.bold(size: 14)
+        dataSet.valueColors = [.black]
+        
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = 0
         formatter.multiplier = 1.0
         formatter.percentSymbol = "%"
         formatter.zeroSymbol = ""
         data.setValueFormatter(DefaultValueFormatter(formatter: formatter))
+//        pieChart.offset
 
-        pieChart.centerAttributedText = getAttributedCenterText(state: "Alabama", level: "High")
+        pieChart.centerAttributedText = getAttributedCenterText(state: res.stateName.capitalized, level: res.incidentRiskLevel.capitalized)
 
         pieChart.usePercentValuesEnabled = true
+        pieChart.drawEntryLabelsEnabled = false
         pieChart.animate(xAxisDuration: 1, easingOption: .easeOutBounce)
+        pieChart.legend.font = Fonts.light(size: 14)
 
         //pieChart.spin(duration: 1, fromAngle: 0, toAngle: 120)
 
         //        dataSet.valueColors = [UIColor.black]
 
-        //        pieChart.backgroundColor = UIColor.black
-        //        pieChart.holeColor = UIColor.clear
-        //        pieChart.chartDescription?.textColor = UIColor.white
-        //        pieChart.legend.textColor = UIColor.white
-
-        //        pieChart.legend.font = UIFont(name: "Futura", size: 10)!
-        //        pieChart.chartDescription?.font = UIFont(name: "Futura", size: 12)!
-        //        pieChart.chartDescription?.xOffset = pieChart.frame.width - 8
-        //        pieChart.chartDescription?.yOffset = pieChart.frame.height * (2/3)
-        //        pieChart.chartDescription?.textAlign = NSTextAlignment.left
-
         //This must stay at end of function
         pieChart.notifyDataSetChanged()
     }
 
-    static func buildBarChart(_ barChart: BarChartView) {
-        let dataSet = BarChartDataSet(values: [
-            BarChartDataEntry(x: 0, y: 20),
-            BarChartDataEntry(x: 1, y: 10),
-            BarChartDataEntry(x: 2, y: 15),
-            BarChartDataEntry(x: 3, y: 20),
-            BarChartDataEntry(x: 4, y: 20),
-            BarChartDataEntry(x: 5, y: 20),
-            BarChartDataEntry(x: 6, y: 15),
-            BarChartDataEntry(x: 7, y: 20),
-            BarChartDataEntry(x: 8, y: 20),
-            BarChartDataEntry(x: 9, y: 20),
-            BarChartDataEntry(x: 10, y: 20),
-            BarChartDataEntry(x: 11, y: 20),], label: "")
+    static func buildBarChart(_ barChart: BarChartView, using res: IncidentResponse) {
+        let entries = res.monthData.map {
+            BarChartDataEntry(x: $0.month - 1,
+                              y: $0.percentage)
+        }
+
+        let dataSet = BarChartDataSet(values: entries, label: "")
 
         dataSet.colors = [Constants.Colors.lightBlue]
-        dataSet.valueFont = .systemFont(ofSize: 10)
+        dataSet.valueFont = Fonts.light(size: 10)
 
         let data = BarChartData(dataSets: [dataSet])
         barChart.data = data
@@ -83,7 +71,7 @@ class ChartBuilder {
 
         let formatter = NumberFormatter()
         formatter.numberStyle = .percent
-        formatter.maximumFractionDigits = 2
+        formatter.maximumFractionDigits = 0
         formatter.multiplier = 1.0
         formatter.percentSymbol = "%"
         formatter.zeroSymbol = ""
@@ -97,7 +85,7 @@ class ChartBuilder {
         barChart.legend.enabled = false
         barChart.xAxis.drawGridLinesEnabled = false
 
-        barChart.xAxis.labelFont = .systemFont(ofSize: 10)
+        barChart.xAxis.labelFont = Fonts.regular(size: 10)
         barChart.xAxis.labelCount = 12
         barChart.leftAxis.enabled = false
         barChart.rightAxis.enabled = false

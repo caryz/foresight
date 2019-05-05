@@ -39,7 +39,7 @@
         <scene sceneID="74D-4W-qTX">
             <objects>
                 <navigationController storyboardIdentifier="settingsNav" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bwf-6N-hfH" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="first" selectedImage="second" id="usE-sZ-BQU"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="settingsIcon" selectedImage="settingsIcon" id="usE-sZ-BQU"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LhU-xF-sTf">
@@ -57,7 +57,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
-        <image name="second" width="30" height="30"/>
+        <image name="settingsIcon" width="25" height="25"/>
     </resources>
 </document>

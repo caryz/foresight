@@ -21,7 +21,28 @@ class PaperTileView: UIView {
     }
 
     func commonInit() {
-        backgroundColor = Constants.Colors.lightGray
+        backgroundColor = .white //Constants.Colors.lightGray
+        layer.cornerRadius = 10
+
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowOffset = .zero
+        layer.shadowRadius = 5
+    }
+}
+
+class PaperTileButton: UIButton {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        commonInit()
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+
+    func commonInit() {
         layer.cornerRadius = 10
 
         layer.shadowColor = UIColor.black.cgColor
