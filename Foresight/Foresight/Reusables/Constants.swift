@@ -23,7 +23,8 @@ class Constants {
     }
 
     enum Colors {
-
+        static let lightGray = UIColor(red: 244/255, green: 246/255, blue: 249/255, alpha: 1)
+        static let lightBlue = UIColor(red: 69/255, green: 142/255, blue: 242/255, alpha: 1)
     }
 }
 
@@ -44,5 +45,6 @@ class Fonts {
 
 extension Notification.Name {
     static let pieChartSelected = Notification.Name("PieChartSelectedEvent")
+    static let pieChartDeselected = Notification.Name("PieChartNothingSelected")
 }
 

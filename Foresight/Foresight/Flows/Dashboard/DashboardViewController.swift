@@ -21,8 +21,7 @@ class DashboardViewController: UIViewController {
         super.viewDidLoad()
         pieChart.delegate = self
         viewModel = DashboardViewModel(delegate: self)
-        PieChartBuilder.build(using: pieChart)
-
+        ChartBuilder.buildPieChart(pieChart)
     }
 
 
@@ -44,9 +43,12 @@ extension DashboardViewController: ChartViewDelegate {
 
         NotificationCenter.default.post(name: .pieChartSelected,
                                         object: nil,
-                                        userInfo: ["Object": label])
+                                        userInfo: ["item": label])
+    }
 
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "notificationName"), object: nil, userInfo: nil)
-
+    func chartValueNothingSelected(_ chartView: ChartViewBase) {
+        NotificationCenter.default.post(name: .pieChartDeselected,
+                                        object: nil,
+                                        userInfo: nil)
     }
 }

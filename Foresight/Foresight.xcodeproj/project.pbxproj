@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		134E59DE7134651C433E1286 /* Pods_ForesightUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D002EAF41B76677B14A9C91 /* Pods_ForesightUITests.framework */; };
+		4A33971E227E70FF004F2AE7 /* PaperTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A33971D227E70FE004F2AE7 /* PaperTileView.swift */; };
 		4A7EBBF1227DFC730095709D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBBF0227DFC730095709D /* AppDelegate.swift */; };
 		4A7EBBF8227DFC730095709D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EBBF6227DFC730095709D /* Main.storyboard */; };
 		4A7EBBFA227DFC750095709D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A7EBBF9227DFC750095709D /* Assets.xcassets */; };
@@ -23,7 +24,7 @@
 		4A7EBC34227E08B50095709D /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC33227E08B50095709D /* SettingsViewController.swift */; };
 		4A7EBC36227E08BD0095709D /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC35227E08BD0095709D /* AlertsViewController.swift */; };
 		4A7EBC38227E0A410095709D /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC37227E0A410095709D /* TabBarViewController.swift */; };
-		4A7EBC3B227E25F80095709D /* PieChartBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC3A227E25F80095709D /* PieChartBuilder.swift */; };
+		4A7EBC3B227E25F80095709D /* ChartBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC3A227E25F80095709D /* ChartBuilder.swift */; };
 		4A7EBC3E227E29EB0095709D /* PagingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC3D227E29EB0095709D /* PagingViewController.swift */; };
 		4A7EBC41227E2FCD0095709D /* BreakdownViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC3F227E2FCD0095709D /* BreakdownViewController.swift */; };
 		4A7EBC45227E2FE40095709D /* RecsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A7EBC43227E2FE40095709D /* RecsViewController.swift */; };
@@ -53,6 +54,7 @@
 /* Begin PBXFileReference section */
 		0C7B6405578FC52C4E9E008B /* Pods-ForesightUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ForesightUITests.debug.xcconfig"; path = "Target Support Files/Pods-ForesightUITests/Pods-ForesightUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		1D2299B1BB350A9626BC3272 /* Pods-Foresight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Foresight.release.xcconfig"; path = "Target Support Files/Pods-Foresight/Pods-Foresight.release.xcconfig"; sourceTree = "<group>"; };
+		4A33971D227E70FE004F2AE7 /* PaperTileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaperTileView.swift; sourceTree = "<group>"; };
 		4A7EBBED227DFC730095709D /* Foresight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Foresight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A7EBBF0227DFC730095709D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A7EBBF7227DFC730095709D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -74,7 +76,7 @@
 		4A7EBC33227E08B50095709D /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		4A7EBC35227E08BD0095709D /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		4A7EBC37227E0A410095709D /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
-		4A7EBC3A227E25F80095709D /* PieChartBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartBuilder.swift; sourceTree = "<group>"; };
+		4A7EBC3A227E25F80095709D /* ChartBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBuilder.swift; sourceTree = "<group>"; };
 		4A7EBC3D227E29EB0095709D /* PagingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingViewController.swift; sourceTree = "<group>"; };
 		4A7EBC3F227E2FCD0095709D /* BreakdownViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreakdownViewController.swift; sourceTree = "<group>"; };
 		4A7EBC43227E2FE40095709D /* RecsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecsViewController.swift; sourceTree = "<group>"; };
@@ -197,8 +199,9 @@
 				4A7EBC39227E21220095709D /* Networking */,
 				4A7EBC2D227E078F0095709D /* Constants.swift */,
 				4A7EBC37227E0A410095709D /* TabBarViewController.swift */,
-				4A7EBC3A227E25F80095709D /* PieChartBuilder.swift */,
+				4A7EBC3A227E25F80095709D /* ChartBuilder.swift */,
 				4A7EBC4B227E30C60095709D /* Utilities.swift */,
+				4A33971D227E70FE004F2AE7 /* PaperTileView.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -543,10 +546,11 @@
 				4A7EBC2A227E05390095709D /* DashboardViewController.swift in Sources */,
 				4A7EBC38227E0A410095709D /* TabBarViewController.swift in Sources */,
 				4A7EBC2E227E078F0095709D /* Constants.swift in Sources */,
+				4A33971E227E70FF004F2AE7 /* PaperTileView.swift in Sources */,
 				4A7EBC3E227E29EB0095709D /* PagingViewController.swift in Sources */,
 				4A7EBC36227E08BD0095709D /* AlertsViewController.swift in Sources */,
 				4A7EBC41227E2FCD0095709D /* BreakdownViewController.swift in Sources */,
-				4A7EBC3B227E25F80095709D /* PieChartBuilder.swift in Sources */,
+				4A7EBC3B227E25F80095709D /* ChartBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

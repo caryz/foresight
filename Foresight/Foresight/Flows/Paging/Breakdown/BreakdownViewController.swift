@@ -7,8 +7,23 @@
 //
 
 import UIKit
+import Charts
 
 class BreakdownViewController: UIViewController {
+
+    @IBOutlet weak var contentView: UIView!
+    @IBOutlet weak var infoView: PaperTileView!
+    @IBOutlet weak var chartView: PaperTileView!
+    @IBOutlet weak var barChart: BarChartView!
+
+    // Info View
+    @IBOutlet weak var header: UILabel!
+    @IBOutlet weak var annualDamageTitle: UILabel!
+    @IBOutlet weak var annualDamageValue: UILabel!
+    @IBOutlet weak var avgClaimTitle: UILabel!
+    @IBOutlet weak var avgClaimValue: UILabel!
+    @IBOutlet weak var avgDisasterCountTitle: UILabel!
+    @IBOutlet weak var avgDisasterCountValue: UILabel!
 
     class func create() -> BreakdownViewController {
         let storyboard = UIStoryboard(name: "DashboardFlow", bundle: nil)
@@ -18,18 +33,19 @@ class BreakdownViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        NotificationCenter.default.addObserver(self,
-                                               selector: #selector(didSelectItem(_:)),
-                                               name: .pieChartSelected,
-                                               object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didSelectItem(_:)), name: .pieChartSelected, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(didUnselectItems(_:)), name: .pieChartDeselected, object: nil)
+        ChartBuilder.buildBarChart(barChart)
     }
-
-
 }
 
 extension BreakdownViewController {
     @objc func didSelectItem(_ notification: NSNotification) {
-        guard let item = notification.userInfo?["Object"] as? String else { return }
+        guard let item = notification.userInfo?["item"] as? String else { return }
         print("Breakdown selected \(item)")
+    }
+
+    @objc func didUnselectItems(_ notification: NSNotification) {
+        print("Unselected")
     }
 }

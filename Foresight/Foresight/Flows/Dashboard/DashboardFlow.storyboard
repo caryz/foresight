@@ -23,7 +23,7 @@
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EcT-eO-aTc">
-                                <rect key="frame" x="0.0" y="451" width="414" height="362"/>
+                                <rect key="frame" x="0.0" y="450.5" width="414" height="362.5"/>
                                 <connections>
                                     <segue destination="kRS-xf-JLt" kind="embed" id="WWg-Pt-Dze"/>
                                 </connections>
@@ -89,21 +89,149 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Breakdown" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xzY-BA-7fQ">
-                                <rect key="frame" x="186" y="101" width="86" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ylK-YL-yQp">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eX-vU-k0m">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="657.5"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z5d-MY-AS4" customClass="PaperTileView" customModule="Foresight" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="10" width="394" height="277.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Percentage of Disasters by Month" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AGa-Ig-DH6">
+                                                        <rect key="frame" x="10" y="20" width="374" height="20"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Annual Disaster Damage Costs" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="3G5-St-efm">
+                                                        <rect key="frame" x="10" y="60" width="374" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$5.5 M" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AGq-fV-eca">
+                                                        <rect key="frame" x="169" y="91" width="56.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Number of Claims Per Year" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="CaY-1v-Nc5">
+                                                        <rect key="frame" x="10" y="132.5" width="374" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1,400" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Ke8-TV-oOs">
+                                                        <rect key="frame" x="174.5" y="163.5" width="45.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Average Number of Disasters Per Year" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="kj5-h9-lXe">
+                                                        <rect key="frame" x="10" y="205" width="374" height="21"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="bkh-lh-aYa">
+                                                        <rect key="frame" x="187" y="236" width="20.5" height="21.5"/>
+                                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="100" id="0WB-YU-Ehq"/>
+                                                    <constraint firstItem="AGa-Ig-DH6" firstAttribute="top" secondItem="Z5d-MY-AS4" secondAttribute="top" constant="20" id="2Wj-LY-Tg3"/>
+                                                    <constraint firstItem="kj5-h9-lXe" firstAttribute="leading" secondItem="Z5d-MY-AS4" secondAttribute="leading" constant="10" id="2dB-e0-GWR"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3G5-St-efm" secondAttribute="trailing" constant="10" id="3Z8-KJ-YyQ"/>
+                                                    <constraint firstAttribute="trailing" secondItem="AGa-Ig-DH6" secondAttribute="trailing" constant="10" id="6gZ-nt-rpg"/>
+                                                    <constraint firstItem="3G5-St-efm" firstAttribute="leading" secondItem="Z5d-MY-AS4" secondAttribute="leading" constant="10" id="9At-uO-f6M"/>
+                                                    <constraint firstAttribute="bottom" secondItem="bkh-lh-aYa" secondAttribute="bottom" constant="20" id="Bq5-ZZ-2cB"/>
+                                                    <constraint firstItem="3G5-St-efm" firstAttribute="top" secondItem="Z5d-MY-AS4" secondAttribute="top" constant="60" id="CDk-sV-6HI"/>
+                                                    <constraint firstItem="kj5-h9-lXe" firstAttribute="top" secondItem="Ke8-TV-oOs" secondAttribute="bottom" constant="20" id="Fh4-QR-nR0"/>
+                                                    <constraint firstItem="AGa-Ig-DH6" firstAttribute="leading" secondItem="Z5d-MY-AS4" secondAttribute="leading" constant="10" id="IbC-RZ-HAE"/>
+                                                    <constraint firstItem="Ke8-TV-oOs" firstAttribute="centerX" secondItem="Z5d-MY-AS4" secondAttribute="centerX" id="My4-sx-oWp"/>
+                                                    <constraint firstItem="CaY-1v-Nc5" firstAttribute="top" secondItem="AGq-fV-eca" secondAttribute="bottom" constant="20" id="W9T-e2-QyI"/>
+                                                    <constraint firstItem="bkh-lh-aYa" firstAttribute="centerX" secondItem="Z5d-MY-AS4" secondAttribute="centerX" id="Wrm-pZ-evL"/>
+                                                    <constraint firstItem="Ke8-TV-oOs" firstAttribute="top" secondItem="CaY-1v-Nc5" secondAttribute="bottom" constant="10" id="alb-qq-Za0"/>
+                                                    <constraint firstItem="AGq-fV-eca" firstAttribute="top" secondItem="3G5-St-efm" secondAttribute="bottom" constant="10" id="bFb-9S-Pdj"/>
+                                                    <constraint firstAttribute="trailing" secondItem="CaY-1v-Nc5" secondAttribute="trailing" constant="10" id="eQL-jD-tPM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="kj5-h9-lXe" secondAttribute="trailing" constant="10" id="fbH-uj-4VU"/>
+                                                    <constraint firstItem="CaY-1v-Nc5" firstAttribute="leading" secondItem="Z5d-MY-AS4" secondAttribute="leading" constant="10" id="fww-Dw-yWI"/>
+                                                    <constraint firstItem="bkh-lh-aYa" firstAttribute="top" secondItem="kj5-h9-lXe" secondAttribute="bottom" constant="10" id="hD2-YS-pRb"/>
+                                                    <constraint firstItem="3G5-St-efm" firstAttribute="top" secondItem="AGa-Ig-DH6" secondAttribute="bottom" constant="20" id="hVA-JA-k8Z"/>
+                                                    <constraint firstItem="AGq-fV-eca" firstAttribute="centerX" secondItem="Z5d-MY-AS4" secondAttribute="centerX" id="jMm-p4-goK"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4WY-f2-EbB" customClass="PaperTileView" customModule="Foresight" customModuleProvider="target">
+                                                <rect key="frame" x="10" y="307.5" width="394" height="300"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mqn-yQ-mAB" customClass="BarChartView" customModule="Charts">
+                                                        <rect key="frame" x="10" y="10" width="374" height="280"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.64226239919999994" green="0.060273230079999997" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="300" id="X3o-hx-3pM"/>
+                                                    <constraint firstAttribute="bottom" secondItem="Mqn-yQ-mAB" secondAttribute="bottom" constant="10" id="d8q-V5-Ejq"/>
+                                                    <constraint firstItem="Mqn-yQ-mAB" firstAttribute="top" secondItem="4WY-f2-EbB" secondAttribute="top" constant="10" id="k9r-tZ-OJT"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Mqn-yQ-mAB" secondAttribute="trailing" constant="10" id="tmi-y3-o7o"/>
+                                                    <constraint firstItem="Mqn-yQ-mAB" firstAttribute="leading" secondItem="4WY-f2-EbB" secondAttribute="leading" constant="10" id="zbI-7Y-0x0"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="Z5d-MY-AS4" secondAttribute="trailing" constant="10" id="3lb-cv-O8y"/>
+                                            <constraint firstAttribute="bottom" secondItem="4WY-f2-EbB" secondAttribute="bottom" constant="50" id="Pty-kZ-OGf"/>
+                                            <constraint firstItem="Z5d-MY-AS4" firstAttribute="top" secondItem="3eX-vU-k0m" secondAttribute="top" constant="10" id="WCG-4q-1qv"/>
+                                            <constraint firstAttribute="trailing" secondItem="4WY-f2-EbB" secondAttribute="trailing" constant="10" id="YP1-XV-8lC"/>
+                                            <constraint firstItem="Z5d-MY-AS4" firstAttribute="leading" secondItem="3eX-vU-k0m" secondAttribute="leading" constant="10" id="rkd-w1-kab"/>
+                                            <constraint firstItem="4WY-f2-EbB" firstAttribute="leading" secondItem="3eX-vU-k0m" secondAttribute="leading" constant="10" id="w2h-an-gL7"/>
+                                            <constraint firstItem="4WY-f2-EbB" firstAttribute="top" secondItem="Z5d-MY-AS4" secondAttribute="bottom" constant="20" id="yhB-VN-bJ6"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="3eX-vU-k0m" secondAttribute="bottom" id="C3B-CX-Hxq"/>
+                                    <constraint firstItem="3eX-vU-k0m" firstAttribute="top" secondItem="ylK-YL-yQp" secondAttribute="top" id="YVz-gB-j0s"/>
+                                    <constraint firstItem="3eX-vU-k0m" firstAttribute="leading" secondItem="ylK-YL-yQp" secondAttribute="leading" id="leZ-UU-LYW"/>
+                                    <constraint firstAttribute="trailing" secondItem="3eX-vU-k0m" secondAttribute="trailing" id="z1f-Hg-koH"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ylK-YL-yQp" firstAttribute="top" secondItem="MXZ-cz-sMq" secondAttribute="top" id="NTd-iU-fcY"/>
+                            <constraint firstItem="3eX-vU-k0m" firstAttribute="width" secondItem="w8h-3m-P5M" secondAttribute="width" id="g5z-4P-7FC"/>
+                            <constraint firstItem="ylK-YL-yQp" firstAttribute="leading" secondItem="MXZ-cz-sMq" secondAttribute="leading" id="kDj-KZ-JUJ"/>
+                            <constraint firstItem="MXZ-cz-sMq" firstAttribute="trailing" secondItem="ylK-YL-yQp" secondAttribute="trailing" id="ken-3g-m1v"/>
+                            <constraint firstItem="3eX-vU-k0m" firstAttribute="height" secondItem="w8h-3m-P5M" secondAttribute="height" priority="250" id="nrX-PM-CEv"/>
+                            <constraint firstItem="MXZ-cz-sMq" firstAttribute="bottom" secondItem="ylK-YL-yQp" secondAttribute="bottom" id="uXR-Ym-6wV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MXZ-cz-sMq"/>
                     </view>
+                    <connections>
+                        <outlet property="annualDamageTitle" destination="3G5-St-efm" id="F5T-SU-9sH"/>
+                        <outlet property="annualDamageValue" destination="AGq-fV-eca" id="5q7-lj-xkm"/>
+                        <outlet property="avgClaimTitle" destination="CaY-1v-Nc5" id="VLp-38-vgt"/>
+                        <outlet property="avgClaimValue" destination="Ke8-TV-oOs" id="qip-Me-YZF"/>
+                        <outlet property="avgDisasterCountTitle" destination="kj5-h9-lXe" id="KdH-1h-7hb"/>
+                        <outlet property="avgDisasterCountValue" destination="bkh-lh-aYa" id="B1u-OF-Xl2"/>
+                        <outlet property="barChart" destination="Mqn-yQ-mAB" id="Fq1-9q-SDV"/>
+                        <outlet property="chartView" destination="4WY-f2-EbB" id="QtL-3h-ejV"/>
+                        <outlet property="contentView" destination="3eX-vU-k0m" id="8S3-pk-XDy"/>
+                        <outlet property="header" destination="AGa-Ig-DH6" id="bvU-W9-Dlp"/>
+                        <outlet property="infoView" destination="Z5d-MY-AS4" id="cBF-vJ-xgl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bfZ-CV-Avo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="287" y="818"/>
+            <point key="canvasLocation" x="286.95652173913044" y="817.63392857142856"/>
         </scene>
         <!--Recs View Controller-->
         <scene sceneID="2VM-x5-l74">
@@ -124,6 +252,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="7f5-Ww-NQT"/>
                     </view>
+                    <connections>
+                        <outlet property="something" destination="CpC-nX-bDg" id="k3g-NG-IUl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JZU-ID-7nK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -148,6 +279,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="IBu-vE-1i3"/>
                     </view>
+                    <connections>
+                        <outlet property="something" destination="EN5-ba-JZg" id="MIQ-gV-fPj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5st-cg-SaS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

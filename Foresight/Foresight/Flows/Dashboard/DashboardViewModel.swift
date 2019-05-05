@@ -19,7 +19,8 @@ class DashboardViewModel {
     convenience init(delegate: DashboardDelegate) {
         self.init()
         self.delegate = delegate
-        self.delegate?.didFinishFetch(response: "fk u")
+        self.delegate?.didFinishFetch(response: "api calls finished")
     }
+
 
 }
